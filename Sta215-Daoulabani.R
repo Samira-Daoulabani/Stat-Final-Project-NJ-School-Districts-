@@ -27,19 +27,26 @@ View(dataset)
 ##################################################################################
 ############### Table 1: descriptive statistics    ####################   
 ##################################################################################
+# Display the frequency distribution of the 'tax' variable in the dataset.
 table(dataset$tax)
-table(dataset$budget_cuts)
+# Display the frequency distribution of the 'budget_cuts' variable in the dataset.
+table(dataset$budget_cuts
+# Display the frequency distribution of the 'funding' variable in the dataset.  
 table(dataset$funding)
 
-
+#The `summary()` function provides basic descriptive statistics for a numeric or factor variable.
 summary(dataset$graduation)
+#The `sd()` function calculates the standard deviation, a measure of the spread or dispersion of the data.
 sd(dataset$graduation)
 
-
+#The `summary()` function provides a quick statistical summary of the variable.
 summary(dataset$population)
+#The `sd()` function calculates the standard deviation of the variable.
 sd(dataset$population)
 
+#summary()` provides a statistical summary of the variable `homeless` in the dataset.
 summary(dataset$homeless)
+#`sd()` calculates the standard deviation of the `homeless` variable in the dataset.
 sd(dataset$homeless)
 
 
@@ -48,12 +55,16 @@ sd(dataset$homeless)
 ##################################################################################
 #################### Figure 1: boxplot             ####################   
 ##################################################################################
+#This line creates a boxplot to visualize the distribution of the `graduation` variable
 boxplot(graduation ~ budget_cuts, data = dataset)
+#The `aov()` function fits an ANOVA model to the data, analyzing the effect of `budget_cuts` on `graduation`.
 anova <- aov(graduation ~ budget_cuts, data = dataset)
+#The `summary()` function provides a detailed output of the ANOVA results
 summary(anova)
 ##################################################################################
 ####################   Figure 2: scatter plot             ####################   
 ##################################################################################
+# Plotting a scatter plot of 'population' vs. 'homeless' from the 'dataset'
 plot(dataset$population,dataset$homeless)
 
 meanx <- mean(dataset$homeless)
